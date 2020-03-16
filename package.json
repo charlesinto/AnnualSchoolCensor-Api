@@ -1,0 +1,53 @@
+{
+  "name": "AnnualSchoolCensor-Api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_ENV=TEST&& nyc mocha server/tests/index.js --no-deprecation --require @babel/register --timeout 20000 --exit",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "build": "babel server -d dist",
+    "start:dev": "set NODE_ENV=DEVELOPMENT&& nodemon ./server/index.js --exec babel-node",
+    "start": "set NODE_ENV=PRODUCTION&& npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlesinto/AnnualSchoolCensor-Api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlesinto/AnnualSchoolCensor-Api/issues"
+  },
+  "homepage": "https://github.com/charlesinto/AnnualSchoolCensor-Api#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "jasmine": "^3.5.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-supertest": "^1.0.0",
+    "mocha": "^7.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "coveralls": "^3.0.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jasmine-node": "^3.0.0",
+    "mysql2": "^2.1.0",
+    "nyc": "^15.0.0",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui-express": "^4.1.3"
+  }
+}
