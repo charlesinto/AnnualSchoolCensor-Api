@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engineStrict": true,
+  "engines": {
+    "node": "12.8.0",
+    "npm": "6.10.2"
+  },
   "scripts": {
     "test": "set NODE_ENV=TEST&& nyc mocha server/tests/index.js --no-deprecation --require @babel/register --timeout 20000 --exit",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
