@@ -1,8 +1,9 @@
 import mysql2 from "mysql2";
+import "dotenv/config";
 
 let pool = '';
 
-if(process.env.NODE_ENV === 'PRODUCTION'){
+if(process.env.NODE_ENV === 'DEVELOPMENT'){
     pool = mysql2.createPool({
         host: 'localhost',
         user: 'root',
@@ -26,12 +27,12 @@ else if(process.env.NODE_ENV === 'TEST'){
 
 }
 
-else if(process.env.NODE_ENV === 'Development'){
+else if(process.env.NODE_ENV === 'PRODUCTION'){
     pool = mysql2.createPool({
-        host: '162.241.253.36',
-        user: 'eddmapco_ad_asc',
-        password: 'x4~^uNGgS9v9',
-        database: 'eddmapco_asc_web',
+        host: process.env.PRD_DATABASE_HOST,
+        user: process.env.PRD_DATABASE_USER,
+        password: process.env.PRD_DATABASE_PASSWORD,
+        database: process.env.PRD_DATABASE_SCHEMA,
         waitForConnections: true,
         connectionLimit: 10,
     })
