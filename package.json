@@ -38,7 +38,7 @@
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-supertest": "^1.0.0",
-    "mocha": "^7.1.0",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
